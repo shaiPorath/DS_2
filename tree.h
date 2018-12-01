@@ -10,28 +10,28 @@
 
 using namespace std;
 
-class node{
+class tnode{
 public:
     int key;
     void* value;
     int height;
-    node* right;
-    node* left;
+    tnode* right;
+    tnode* left;
 
-    node(int key, void* value) : key(key), value(value),height(0), right(nullptr), left
+    tnode(int key, void* value) : key(key), value(value),height(0), right(nullptr), left
             (nullptr){};
 };
 
 enum StatusType {ALLOCATION_ERROR, INVALID_INPUT, FAILURE, SUCCESS};
 
 typedef class tree *Tree;
-typedef class node *Node;
+typedef class tnode *TNode;
 
 class tree{
 
-public:
-    Node root;
     int size;
+public:
+    TNode root;
 
     /*------------------------------------------*/
     tree();
@@ -40,19 +40,22 @@ public:
      */
 
 
-    StatusType Add(void *DS, int key, void* value, void** node);
+    void* Add(int key, void* value);
+/**
+ *
+ * @param key - the key of the item we want to find
+ * @return the node with requested key.
+ * null - if was not found
+ */
+    void* Find(int key);
+    void* Delete(int key);
 
-    StatusType Find(void* DS, int key, void** value);
-    StatusType Delete(void *DS, int key);
 
-    StatusType DeleteByPointer(void *DS, void* node);
-    StatusType Size(void *DS, int *n);
-    void Quit(void **DS);
+    void* DeleteByPointer(void* tnode);
+    int Size();
+    void Quit();
 
-    void insert_node (Node new_node, Node iterator, int key);
+    void insert_node (TNode new_node, TNode iterator, int key);
 };
-
-void* init();
-
 
 #endif //LIST_TREE_H

@@ -1,19 +1,19 @@
 #include <iostream>
-#include "library1.h"
+#include "library1_list.h"
 #include <assert.h>
 
 
 int main() {
-    void* new_list = init; //init();
-    assert(!((List)new_list)->first); //init to null
-    assert(!((List)new_list)->Size());  //init size to 0
+    List new_list = (List)Init(); //init();
+    assert(!new_list->first); //init to null
+    assert(!new_list->Size());  //init size to 0
     //int* size_ptr = new int(0);
     int* value1 = new int(1);
     int* value2 = new int(2);
     int* value3 = new int(3);
 
     /*function add*/
-    Node node3 = ((Node)((List)new_list)->Add(3, value3));
+    Node node3 = ((Node)(new_list)->Add(3, value3));
     assert(node3->key == 3);
     assert((((List)new_list)->first)->key = 3);
 

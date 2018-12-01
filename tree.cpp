@@ -2,89 +2,44 @@
 // Created by Hagar on 28/11/2018.
 //
 
-#include <new> //check!#$%#$%#$
 #include "tree.h"
 /*-------------------------------------------------*/
-
-static Node insert (Node root, int key, void* value);
+static TNode insert (TNode root, TNode new_tnode);
+static int bf_calc (TNode node);
 static int max(int a, int b);
-static int height(Node node);
+static int height(TNode tnode);
 static int abs(int x);
 /*-------------------------------------------------*/
-/*void* init(){
-    try {
-        Tree new_list = new tree;
-        return (void*) new_list;
-    } catch (bad_alloc& e) { return nullptr; }
+
+tree::tree():size(0), root(nullptr){}
+
+void* tree::Add(int key, void* value) {
+    TNode new_tnode = new tnode(key, value);
+    insert(root, new_tnode);
+    size++;
+    return new_tnode;
 }
 
-tree::tree():root(nullptr),size(0){}
 
-StatusType Add(void *DS, int key, void* value, void** node){
-    if (!DS || !node)
-        return INVALID_INPUT;
+static TNode insert (TNode root, TNode new_tnode) {
 
-    try {
-
-
-        if (!iterator) {
-            ((Tree)DS)->root = new_node;
-            ((Tree)DS)->size++;
-            *node = new_node;
-            return SUCCESS;
-        }
-
-        while ((key > (iterator)->key )&& iterator->next!= nullptr){
-            iterator = iterator->next;
-        }
-        if (key == iterator->key) return FAILURE;
-
-        ((List)DS)->insert_node(new_node, iterator, key);
-        *node = new_node;
-        (((List) DS)->size)++;
-
-        return SUCCESS;
-
-    }catch (bad_alloc& e) { return ALLOCATION_ERROR; }
-
-}
-*/
-StatusType Find(void* DS, int key, void** value);
-StatusType Delete(void *DS, int key);
-
-StatusType DeleteByPointer(void *DS, void* node);
-StatusType Size(void *DS, int *n);
-void Quit(void **DS);
-
-void insert_node (Node new_node, Node iterator, int key);
-
-
-static Node node_create(int key, void* value){
-        Node new_node = new class node;
-        new_node->key = key;
-        new_node->value = value;
-        new_node->right = nullptr;
-        new_node->left = nullptr;
-        new_node->height = 0;
-        return (new_node);
+    if (!root) {
+        root = new_tnode;
+        return root;
     }
-    /*
-static StatusType insert (Node root, int key, void* value, void** node) {
-    try {
-        if (!root) {
-            root = node_create(key, value);
-            *node = root;
-        }
-    } catch (bad_alloc &e) { return FAILURE; }
 
-    else if (root->key < key) {
-        insert(root->right, key, value);
+
+    else if (root->key < new_tnode->key) {
+        root->right = insert(root->right, new_tnode);
+        //insert(root->right, new_tnode);
+
         if (height(root->left) - height(root->right) == 2) {
             //RL
 
             //RR
         }
         root->height = max(height(root->left), height(root->right)) + 1;
+        check_height();
     } else if (root->key > key) {
         insert(root->left, key, value);
         if (height(root->left) - height(root->right) == -2) {
@@ -104,9 +59,57 @@ static StatusType insert (Node root, int key, void* value, void** node) {
 
     }
 }
-     */
-static void LR(Node root) {
-    Node temp = (root->right)->left;
+static TNode balance (TNode temp){
+    int b_factor = bf_calc(temp);
+    if (b_factor > 1){
+        if (bf_calc(temp->left) >= 0)
+            temp = LL_rotation(temp);
+        else
+            temp = LR_rotation(temp);
+    }
+    else if (b_factor< -1){
+        if (bf_calc(temp->right) <= 0)
+            temp = RL_rotation(temp);
+        else
+            temp = RR_rotation(temp);
+    }
+    return temp;
+}
+
+static TNode LL_rotation (TNode root){
+    TNode temp;
+    temp = root-> left;
+    root->left = temp->right;
+    temp->right = root;
+    return temp;
+}
+
+static TNode LR_rotation(TNode root){
+    TNode temp;
+    temp = root->left;
+    root->left = RR_rotation(temp);
+    return LL_rotation(root);
+}
+
+static TNode LR_rotation(TNode root){
+
+}
+static TNode LR_rotation(TNode root){
+
+}
+
+static int bf_calc (TNode node){
+    return (height(node->left)-height(node->right));
+}
+StatusType Find(void* DS, int key, void** value);
+StatusType Delete(void *DS, int key);
+
+StatusType DeleteByPointer(void *DS, void* tnode);
+StatusType Size(void *DS, int *n);
+void Quit(void **DS);
+
+static void LR(TNode root) {
+    TNode temp = (root->right)->left;
     (root->right)->left = root->left;
     (root->left)->right = temp;
 
@@ -115,16 +118,16 @@ static void LR(Node root) {
     root->left = temp;
 }
 
-static void RL(Node root){
+static void RL(TNode root){
 
 }
 
 static int max(int a, int b){
     return (a>b? a : b);
 }
-static int height(Node node){
-    if (!node) return -1;
-    return node->height;
+static int height(TNode tnode){
+    if (!tnode) return -1;
+    return tnode->height;
 }
 
 static int abs(int x){
