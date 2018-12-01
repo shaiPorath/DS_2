@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Shai/Desktop/technion/DataStructure/list/library1.cpp
+library1.h
+C:/Users/Shai/Desktop/technion/DataStructure/list/library1.h
+
+C:/Users/Shai/Desktop/technion/DataStructure/list/library1.h
+list.h
+C:/Users/Shai/Desktop/technion/DataStructure/list/list.h
+
+C:/Users/Shai/Desktop/technion/DataStructure/list/list.cpp
+list.h
+C:/Users/Shai/Desktop/technion/DataStructure/list/list.h
+
+C:/Users/Shai/Desktop/technion/DataStructure/list/list.h
+iostream
+-
+exception
+-
+
+C:/Users/Shai/Desktop/technion/DataStructure/list/main.cpp
+iostream
+-
+list.h
+C:/Users/Shai/Desktop/technion/DataStructure/list/list.h
+library1.h
+C:/Users/Shai/Desktop/technion/DataStructure/list/library1.h
+assert.h
+-
+
