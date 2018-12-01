@@ -4,13 +4,14 @@
 
 #include "library1.h"
 
+
 void *Init(){
     try {
         return ((void *) new list());
     }catch (bad_alloc& e) {return nullptr;}
 }
 
-StatusType Add(void DS, int key, void value, void** node){
+StatusType Add(void *DS, int key, void* value, void** node){
     if (!DS || !node) return INVALID_INPUT;
 
     try {
@@ -21,7 +22,7 @@ StatusType Add(void DS, int key, void value, void** node){
     }catch (bad_alloc& e ) { return ALLOCATION_ERROR; }
 }
 
-StatusType Find(void DS, int key, void* value){
+StatusType Find(void *DS, int key, void** value){
     if (!DS || !value)
         return INVALID_INPUT;
     Node found = (Node)((List) DS)->Find(key);
@@ -30,8 +31,12 @@ StatusType Find(void DS, int key, void* value){
     return SUCCESS;
 }
 
-StatusType Delete(void *DS, int key);
+StatusType Delete(void *DS, int key){
+    if (!DS) return INVALID_INPUT;
+    if (!((List)DS)->Delete(key)) return FAILURE;
+    return SUCCESS;
 
+}
 StatusType DeleteByPointer(void *DS, void* p){
     if (!DS || !p) return INVALID_INPUT;
 

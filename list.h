@@ -9,8 +9,8 @@
 #include <exception>
 
 using namespace std;
-typedef class node* Node;
 
+typedef class node *Node;
 
 //typedef enum {ALLOCATION_ERROR, INVALID_INPUT, FAILURE, SUCCESS} StatusType ;
 
@@ -22,30 +22,30 @@ public:
     node* last;
 
     node(int key, void* value) : key(key), value(value), next(nullptr), last
-            (nullptr){};;
+            (nullptr){};
 };
 
 typedef class list{
-
     int size;
-
 public:
-
     Node first;
 
     /*------------------------------------------*/
     list();
 
     void* Add(int key, void* value);
+/**
+ *
+ * @param key - the key of the item we want to find
+ * @return the node with requested key.
+ * null - if was not found
+ */
+    void* Find(int key);
+    void* Delete(int key);
 
-    void* Find(void* DS, int key, void** value);
-
-    void* Delete(void *DS, int key);
 
     void* DeleteByPointer(void* node);
-
     int Size();
-
     void Quit();
 
     //void insert_node (Node new_node, Node iterator, int key);

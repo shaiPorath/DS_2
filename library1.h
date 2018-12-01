@@ -82,6 +82,7 @@ StatusType Delete(void *DS, int key);
  *                p - A pointer to the node to delete.
  * Return Values: ALLOCATION_ERROR - In case of an allocation error.
  *                INVALID_INPUT - If DS==NULL.
+ *                FAILURE - If the item does not exist in the DS.
  *                SUCCESS - Otherwise.
  */
 StatusType DeleteByPointer(void *DS, void* p);

@@ -10,21 +10,21 @@
 
 /*------------------------------------------------*/
 
-list::list() : first(nullptr), size(0){};
-
-
+list::list():size(0), first(nullptr){}
+//list::node::node(int key, void* value) : key(key), value(value), next(nullptr), last
+   //     (nullptr){};
 
 void* list::Add(int key, void* value) {
 
         Node new_node = new node(key, value);
         if(this->first) {
             (this->first)->last = new_node;
-            new_node->next = first;
+            new_node->next = this->first;
 
         }
-        first = new_node;
-        size++;
-        return new_node;
+        this->first = new_node;
+        this->size++;
+        return (new_node);
 
 }
 
@@ -61,41 +61,22 @@ void list::insert_node (Node new_node, Node iterator, int key){
     iterator->last = new_node;
 */
 
-/*
-void* list::Find(void* DS, int key, void** value){
-    if (!DS || !value)
-        return INVALID_INPUT;
 
-    Node iterator = ((List)DS)->first;
+void* list::Find(int key){
+
+    Node iterator = this->first;
     while (iterator && (iterator->key != key)){
         iterator = iterator->next;
     }
 
-    if (!iterator) return FAILURE;
+    if (!iterator) return nullptr; //item was not found
 
-    *value = iterator->value;
-    return SUCCESS;
+    return iterator; //returns the found node
 }
 
-void* list::Delete(void *DS, int key){
-    if (!DS) return INVALID_INPUT;
-
-    Node iterator = ((List)DS)->first;
-
-    if (!iterator) return FAILURE; // list is empty
-
-    while (iterator && key != (iterator)->key ){
-        iterator = iterator->next;
-    }
-    if (!iterator) {
-        return FAILURE;
-    }
-
-    ((List)DS)->size--;
-
-    return (DeleteByPointer(DS, iterator));
+void* list::Delete(int key){
+    return (DeleteByPointer(this->Find(key)));
 }
-*/
 void* list::DeleteByPointer(void* node){
     if (!node) return nullptr;
 
@@ -104,18 +85,21 @@ void* list::DeleteByPointer(void* node){
         if(((Node)node)->next)      //in case list is not empty.
             (first)->last = nullptr;
         delete(((Node)node));
+        this->size--;
         return this;
     }
 
     if (!((Node)node)->next){   //If the last is being deleted
         (((Node)node)->last)->next = nullptr;
         delete(((Node)node));
+        this->size--;
         return this;
     }
 
     (((Node)node)->last)->next = ((Node)node)->next;
     (((Node)node)->next)->last = ((Node)node)->last;
     delete(((Node)node));
+    this->size--;
     return this;
 }
 
@@ -135,6 +119,7 @@ void list::Quit(){
         iterator->last = nullptr;
     }
     delete (iterator);                  //deletes last node
+
     delete (this);
 
 }

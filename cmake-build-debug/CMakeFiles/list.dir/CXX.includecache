@@ -6,31 +6,35 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Shai/Desktop/technion/DataStructure/list/library1.cpp
+C:/Users/Hagar/CLionProjects/dataStruct/list/library1.cpp
 library1.h
-C:/Users/Shai/Desktop/technion/DataStructure/list/library1.h
+C:/Users/Hagar/CLionProjects/dataStruct/list/library1.h
 
-C:/Users/Shai/Desktop/technion/DataStructure/list/library1.h
+C:/Users/Hagar/CLionProjects/dataStruct/list/library1.h
 list.h
-C:/Users/Shai/Desktop/technion/DataStructure/list/list.h
+C:/Users/Hagar/CLionProjects/dataStruct/list/list.h
 
-C:/Users/Shai/Desktop/technion/DataStructure/list/list.cpp
+C:/Users/Hagar/CLionProjects/dataStruct/list/list.cpp
 list.h
-C:/Users/Shai/Desktop/technion/DataStructure/list/list.h
+C:/Users/Hagar/CLionProjects/dataStruct/list/list.h
 
-C:/Users/Shai/Desktop/technion/DataStructure/list/list.h
+C:/Users/Hagar/CLionProjects/dataStruct/list/list.h
 iostream
 -
 exception
 -
 
-C:/Users/Shai/Desktop/technion/DataStructure/list/main.cpp
-iostream
--
-list.h
-C:/Users/Shai/Desktop/technion/DataStructure/list/list.h
-library1.h
-C:/Users/Shai/Desktop/technion/DataStructure/list/library1.h
+C:/Users/Hagar/CLionProjects/dataStruct/list/weird_main.cpp
 assert.h
 -
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+time.h
+-
+library1.h
+C:/Users/Hagar/CLionProjects/dataStruct/list/library1.h
 
