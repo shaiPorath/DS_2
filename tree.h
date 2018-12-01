@@ -12,11 +12,14 @@ using namespace std;
 
 class node{
 public:
-    void* value;
     int key;
+    void* value;
     int height;
     node* right;
     node* left;
+
+    node(int key, void* value) : key(key), value(value),height(0), right(nullptr), left
+            (nullptr){};
 };
 
 enum StatusType {ALLOCATION_ERROR, INVALID_INPUT, FAILURE, SUCCESS};

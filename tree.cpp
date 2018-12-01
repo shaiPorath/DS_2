@@ -5,7 +5,7 @@
 #include <new> //check!#$%#$%#$
 #include "tree.h"
 /*-------------------------------------------------*/
-static Node node_create(int key, void* value);
+
 static Node insert (Node root, int key, void* value);
 static int max(int a, int b);
 static int height(Node node);
