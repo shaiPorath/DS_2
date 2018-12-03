@@ -6,35 +6,21 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Hagar/CLionProjects/dataStruct/list/library1.cpp
-library1.h
-C:/Users/Hagar/CLionProjects/dataStruct/list/library1.h
-
-C:/Users/Hagar/CLionProjects/dataStruct/list/library1.h
-list.h
-C:/Users/Hagar/CLionProjects/dataStruct/list/list.h
-
-C:/Users/Hagar/CLionProjects/dataStruct/list/list.cpp
-list.h
-C:/Users/Hagar/CLionProjects/dataStruct/list/list.h
-
-C:/Users/Hagar/CLionProjects/dataStruct/list/list.h
+C:/Users/Hagar/CLionProjects/dataStruct/list/tree.cpp
+tree.h
+C:/Users/Hagar/CLionProjects/dataStruct/list/tree.h
 iostream
 -
+
+C:/Users/Hagar/CLionProjects/dataStruct/list/tree.h
 exception
 -
 
-C:/Users/Hagar/CLionProjects/dataStruct/list/weird_main.cpp
+C:/Users/Hagar/CLionProjects/dataStruct/list/tree_main.cpp
+iostream
+-
+tree.h
+C:/Users/Hagar/CLionProjects/dataStruct/list/tree.h
 assert.h
 -
-stdio.h
--
-stdlib.h
--
-string.h
--
-time.h
--
-library1.h
-C:/Users/Hagar/CLionProjects/dataStruct/list/library1.h
 

@@ -3,84 +3,132 @@
 //
 
 #include "tree.h"
+#include <iostream>
+
 /*-------------------------------------------------*/
 static TNode insert (TNode root, TNode new_tnode);
+/**
+ * calculates the balance factor
+ * @param node - node to calc bf for
+ * @return - bf
+ */
 static int bf_calc (TNode node);
 static int max(int a, int b);
+/**
+ *
+ * @param tnode
+ * @return max of to sons + 1
+ *          -1 if empty tree
+ */
 static int height(TNode tnode);
-static int abs(int x);
+//static int abs(int x);
+
+static TNode balance (TNode temp);
+static TNode LL_rotation (TNode root);
+static TNode RR_rotation (TNode root);
+static TNode LR_rotation (TNode root);
+static TNode RL_rotation (TNode root);
+
+static void* Find_aux(TNode root,int key);
+
+static void Quit_aux(TNode node);
+static TNode findMin(TNode node);
+static void update_parent(TNode node);
+static TNode Delete_aux(int key, TNode root);
+static void copy_min_values (TNode min, TNode root);
 /*-------------------------------------------------*/
 
 tree::tree():size(0), root(nullptr){}
 
 void* tree::Add(int key, void* value) {
     TNode new_tnode = new tnode(key, value);
-    insert(root, new_tnode);
+    root = insert(root, new_tnode);
     size++;
     return new_tnode;
 }
-
 
 static TNode insert (TNode root, TNode new_tnode) {
 
     if (!root) {
         root = new_tnode;
         return root;
-    }
-
-
-    else if (root->key < new_tnode->key) {
+    } else if (root->key < new_tnode->key) {
         root->right = insert(root->right, new_tnode);
+        (root->right)->parent = root;
         //insert(root->right, new_tnode);
 
-        if (height(root->left) - height(root->right) == 2) {
-            //RL
-
-            //RR
-        }
+        root = balance(root);
         root->height = max(height(root->left), height(root->right)) + 1;
-        check_height();
-    } else if (root->key > key) {
-        insert(root->left, key, value);
-        if (height(root->left) - height(root->right) == -2) {
-            //LL
-            if (height((root->left)->left) - height((root->left)->right) > 0) { //bf=+1
 
-            }
-            //LR
-            if (height((root->left)->left) - height((root->left)->right) <= 0) { //bf=-1
-
-
-            }
-            root->height = max(height(root->left), height(root->right)) + 1;
-        }
-
-        return SUCCESS;
-
+    } else if (root->key > new_tnode->key) {
+        root->left = insert(root->left, new_tnode);
+        (root->left)->parent = root;
+        root = balance(root);
     }
+    root->height = max(height(root->left), height(root->right)) + 1;
+    return root;
+
 }
+
 static TNode balance (TNode temp){
+
     int b_factor = bf_calc(temp);
-    if (b_factor > 1){
-        if (bf_calc(temp->left) >= 0)
+
+    if (b_factor == 2){
+        if (bf_calc(temp->left) == 1)
             temp = LL_rotation(temp);
         else
             temp = LR_rotation(temp);
     }
-    else if (b_factor< -1){
-        if (bf_calc(temp->right) <= 0)
-            temp = RL_rotation(temp);
-        else
+    else if (b_factor == -2){
+        if (bf_calc(temp->right) == -1)
             temp = RR_rotation(temp);
+        else
+            temp = RL_rotation(temp);
     }
     return temp;
 }
 
 static TNode LL_rotation (TNode root){
+    TNode new_root = root->left;
+
+    //update height
+    //update parent
+
+    root->height--;
+    root->parent = new_root;
+    if(new_root) {
+        (new_root)->height++;
+        new_root->parent = nullptr;
+        if(new_root->right)
+            ((new_root)->right)->parent = root;
+    }
     TNode temp;
-    temp = root-> left;
+    temp = root->left;
     root->left = temp->right;
     temp->right = root;
+
+    return temp;
+}
+
+static TNode RR_rotation(TNode root){
+    TNode new_root = root->right;
+
+    //update height
+    //update parent
+    root->height--;
+    root->parent = new_root;
+    if(new_root) {
+        (new_root)->height++;
+        new_root->parent = nullptr;
+        if(new_root->left)
+            ((new_root)->left)->parent = root;
+    }
+
+    TNode temp;
+    temp = root->right;
+    root->right = temp->left;
+    temp->left = root;
     return temp;
 }
 
@@ -91,45 +139,172 @@ static TNode LR_rotation(TNode root){
     return LL_rotation(root);
 }
 
-static TNode LR_rotation(TNode root){
-
-}
-static TNode LR_rotation(TNode root){
-
+static TNode RL_rotation(TNode root){
+    TNode temp;
+    temp = root->right;
+    root->right = LL_rotation(temp);
+    return RR_rotation(root);
 }
 
 static int bf_calc (TNode node){
     return (height(node->left)-height(node->right));
 }
-StatusType Find(void* DS, int key, void** value);
-StatusType Delete(void *DS, int key);
 
-StatusType DeleteByPointer(void *DS, void* tnode);
-StatusType Size(void *DS, int *n);
-void Quit(void **DS);
-
-static void LR(TNode root) {
-    TNode temp = (root->right)->left;
-    (root->right)->left = root->left;
-    (root->left)->right = temp;
-
-    temp = (root->right)->right;
-    (root->right)->right = root;
-    root->left = temp;
+void* tree::Find(int key){
+    return Find_aux (root, key);
 }
 
-static void RL(TNode root){
+static void* Find_aux(TNode root,int key){
+    if (!root) return nullptr;
 
+    if (key == root->key){
+        return root;
+    }
+
+    else if (key < root->key)
+        return Find_aux(root->left ,key);
+
+    else if (key > root->key)
+        return Find_aux(root->right ,key);
+
+}
+
+
+
+void* tree::Delete(int key){
+    //return(DeleteByPointer(Find(key)));
+    if (!Find(key))
+        return nullptr;
+
+    root = Delete_aux(key, this->root);
+    size--;
+    if(size == 0) root = nullptr;
+    return this;
+}
+
+static TNode Delete_aux(int key, TNode root) {
+    //node isnt in the tree
+    if (!root) return nullptr;
+
+    //search node
+    else if (key < root->key)
+        root->left = Delete_aux(key, root->left);
+    else if (key > root->key)
+        root->right = Delete_aux(key, root->right);
+
+    //node found!
+
+    // If node has 2 kids
+
+    else if (root->right && root->left) {
+        TNode min = findMin(root->right);
+        copy_min_values(min, root);
+        root->right = Delete_aux(root->key, root->right);
+    }
+
+        // If node has one child or none
+
+    else {
+        TNode temp = root;
+        if (!root->left)
+            root = root->right;
+        else if (!root->right)
+            root = root->left;
+        delete (temp);
+    }
+    if (!root) return nullptr;
+
+
+    root->height = max(height(root->left), height(root->right))+1;
+
+    root = balance(root);
+
+    return root;
+
+}
+
+static void copy_min_values (TNode min, TNode root) {
+
+    root->key = min->key;
+    root->value = min->value;
+}
+
+void* tree::DeleteByPointer(void* to_delete) {
+    if (!to_delete) return nullptr;
+    return (Delete(((TNode)to_delete)->key));
+}
+
+static void update_parent(TNode node){
+    TNode par = node->parent;
+    if(par->key < node->key)
+        par->left = nullptr;
+    else
+        par->right = nullptr;
+
+}
+
+static TNode findMin(TNode node){
+    if(!node) return nullptr;
+    if(!node->left) return node;
+    return findMin(node->left);
+}
+
+int tree::Size(){
+    return size;
+}
+
+void tree::Quit(){
+    Quit_aux(this->root);
+    delete(this);
+}
+
+static void Quit_aux(TNode node){
+    if (!node) return;
+    Quit_aux(node->left);
+    Quit_aux(node->right);
+    delete(node);
 }
 
 static int max(int a, int b){
     return (a>b? a : b);
 }
+
 static int height(TNode tnode){
     if (!tnode) return -1;
     return tnode->height;
 }
 
-static int abs(int x){
-    return (x>0? x: -x);
+
+
+/*---------------- functions for tests ------------------*/
+
+
+
+void tree::display(TNode ptr, int level) {
+    int i;
+    if (!ptr) return;
+
+    display(ptr->right, level + 1);
+    printf("\n");
+    if (ptr == root)
+        cout << "Root -> ";
+    for (i = 0; i < level && ptr != root; i++)
+        cout << "        ";
+    if( ptr->parent)
+        cout << ptr->key<< " p:"<<(ptr->parent)->key ;
+    else
+        cout << ptr->key<< " p:n" ;
+    display(ptr->left, level + 1);
+
 }
+
+bool tree::is_balanced(TNode n){
+    if (!n) return true;
+
+    if (((abs(height(n->left) - height(n->right))) <= 1 )&&
+        is_balanced(n->left) &&
+        is_balanced(n->right))
+        return true;
+    return false;
+}
+

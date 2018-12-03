@@ -23,22 +23,23 @@ StatusType Add(void *DS, int key, void* value, void** node){
 StatusType Find(void *DS, int key, void** value){
     if (!DS || !value)
         return INVALID_INPUT;
-    Node found = (Node)((List) DS)->Find(key);
+
+    TNode found = (TNode)(((Tree) DS)->Find(key));
     if (!found) return FAILURE;
-    *value = ((Node)(((List) DS)->Find(key)))->value;
+    *value = found->value;
     return SUCCESS;
 }
 
 StatusType Delete(void *DS, int key){
     if (!DS) return INVALID_INPUT;
-    if (!((List)DS)->Delete(key)) return FAILURE;
+    if (!((Tree)DS)->Delete(key)) return FAILURE;
     return SUCCESS;
 
 }
 StatusType DeleteByPointer(void *DS, void* p){
     if (!DS || !p) return INVALID_INPUT;
 
-    ((List)DS)->DeleteByPointer(p);
+    ((Tree)DS)->DeleteByPointer(p);
 
     return SUCCESS;
 }
@@ -46,15 +47,13 @@ StatusType DeleteByPointer(void *DS, void* p){
 StatusType Size(void *DS, int *n){
     if (!DS || !n) return INVALID_INPUT;
 
-    *n = ((List)(DS))->Size();
+    *n = ((Tree)(DS))->Size();
     return SUCCESS;
 }
 
 
 void Quit(void** DS){
     if (!DS) return;
-
-    ((List)DS)->Quit();
-
+    ((Tree)DS)->Quit();
     DS = nullptr;
 }

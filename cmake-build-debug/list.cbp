@@ -82,19 +82,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Hagar/CLionProjects/dataStruct/list/cmake-build-debug/lib_main.cpp">
+		<Unit filename="C:/Users/Hagar/CLionProjects/dataStruct/list/tree.cpp">
 			<Option target="list"/>
 		</Unit>
-		<Unit filename="C:/Users/Hagar/CLionProjects/dataStruct/list/library1.cpp">
+		<Unit filename="C:/Users/Hagar/CLionProjects/dataStruct/list/tree.h">
 			<Option target="list"/>
 		</Unit>
-		<Unit filename="C:/Users/Hagar/CLionProjects/dataStruct/list/library1.h">
-			<Option target="list"/>
-		</Unit>
-		<Unit filename="C:/Users/Hagar/CLionProjects/dataStruct/list/list.cpp">
-			<Option target="list"/>
-		</Unit>
-		<Unit filename="C:/Users/Hagar/CLionProjects/dataStruct/list/list.h">
+		<Unit filename="C:/Users/Hagar/CLionProjects/dataStruct/list/tree_main.cpp">
 			<Option target="list"/>
 		</Unit>
 		<Unit filename="C:/Users/Hagar/CLionProjects/dataStruct/list/CMakeLists.txt">

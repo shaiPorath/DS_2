@@ -56,95 +56,69 @@ include CMakeFiles/list.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/list.dir/flags.make
 
-CMakeFiles/list.dir/lib_main.cpp.obj: CMakeFiles/list.dir/flags.make
-CMakeFiles/list.dir/lib_main.cpp.obj: lib_main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hagar\CLionProjects\dataStruct\list\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/list.dir/lib_main.cpp.obj"
-	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\list.dir\lib_main.cpp.obj -c C:\Users\Hagar\CLionProjects\dataStruct\list\cmake-build-debug\lib_main.cpp
+CMakeFiles/list.dir/tree_main.cpp.obj: CMakeFiles/list.dir/flags.make
+CMakeFiles/list.dir/tree_main.cpp.obj: ../tree_main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hagar\CLionProjects\dataStruct\list\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/list.dir/tree_main.cpp.obj"
+	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\list.dir\tree_main.cpp.obj -c C:\Users\Hagar\CLionProjects\dataStruct\list\tree_main.cpp
 
-CMakeFiles/list.dir/lib_main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/list.dir/lib_main.cpp.i"
-	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hagar\CLionProjects\dataStruct\list\cmake-build-debug\lib_main.cpp > CMakeFiles\list.dir\lib_main.cpp.i
+CMakeFiles/list.dir/tree_main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/list.dir/tree_main.cpp.i"
+	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hagar\CLionProjects\dataStruct\list\tree_main.cpp > CMakeFiles\list.dir\tree_main.cpp.i
 
-CMakeFiles/list.dir/lib_main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/list.dir/lib_main.cpp.s"
-	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Hagar\CLionProjects\dataStruct\list\cmake-build-debug\lib_main.cpp -o CMakeFiles\list.dir\lib_main.cpp.s
+CMakeFiles/list.dir/tree_main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/list.dir/tree_main.cpp.s"
+	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Hagar\CLionProjects\dataStruct\list\tree_main.cpp -o CMakeFiles\list.dir\tree_main.cpp.s
 
-CMakeFiles/list.dir/lib_main.cpp.obj.requires:
+CMakeFiles/list.dir/tree_main.cpp.obj.requires:
 
-.PHONY : CMakeFiles/list.dir/lib_main.cpp.obj.requires
+.PHONY : CMakeFiles/list.dir/tree_main.cpp.obj.requires
 
-CMakeFiles/list.dir/lib_main.cpp.obj.provides: CMakeFiles/list.dir/lib_main.cpp.obj.requires
-	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/lib_main.cpp.obj.provides.build
-.PHONY : CMakeFiles/list.dir/lib_main.cpp.obj.provides
+CMakeFiles/list.dir/tree_main.cpp.obj.provides: CMakeFiles/list.dir/tree_main.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/tree_main.cpp.obj.provides.build
+.PHONY : CMakeFiles/list.dir/tree_main.cpp.obj.provides
 
-CMakeFiles/list.dir/lib_main.cpp.obj.provides.build: CMakeFiles/list.dir/lib_main.cpp.obj
-
-
-CMakeFiles/list.dir/list.cpp.obj: CMakeFiles/list.dir/flags.make
-CMakeFiles/list.dir/list.cpp.obj: ../list.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hagar\CLionProjects\dataStruct\list\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/list.dir/list.cpp.obj"
-	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\list.dir\list.cpp.obj -c C:\Users\Hagar\CLionProjects\dataStruct\list\list.cpp
-
-CMakeFiles/list.dir/list.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/list.dir/list.cpp.i"
-	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hagar\CLionProjects\dataStruct\list\list.cpp > CMakeFiles\list.dir\list.cpp.i
-
-CMakeFiles/list.dir/list.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/list.dir/list.cpp.s"
-	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Hagar\CLionProjects\dataStruct\list\list.cpp -o CMakeFiles\list.dir\list.cpp.s
-
-CMakeFiles/list.dir/list.cpp.obj.requires:
-
-.PHONY : CMakeFiles/list.dir/list.cpp.obj.requires
-
-CMakeFiles/list.dir/list.cpp.obj.provides: CMakeFiles/list.dir/list.cpp.obj.requires
-	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/list.cpp.obj.provides.build
-.PHONY : CMakeFiles/list.dir/list.cpp.obj.provides
-
-CMakeFiles/list.dir/list.cpp.obj.provides.build: CMakeFiles/list.dir/list.cpp.obj
+CMakeFiles/list.dir/tree_main.cpp.obj.provides.build: CMakeFiles/list.dir/tree_main.cpp.obj
 
 
-CMakeFiles/list.dir/library1.cpp.obj: CMakeFiles/list.dir/flags.make
-CMakeFiles/list.dir/library1.cpp.obj: ../library1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hagar\CLionProjects\dataStruct\list\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/list.dir/library1.cpp.obj"
-	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\list.dir\library1.cpp.obj -c C:\Users\Hagar\CLionProjects\dataStruct\list\library1.cpp
+CMakeFiles/list.dir/tree.cpp.obj: CMakeFiles/list.dir/flags.make
+CMakeFiles/list.dir/tree.cpp.obj: ../tree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Hagar\CLionProjects\dataStruct\list\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/list.dir/tree.cpp.obj"
+	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\list.dir\tree.cpp.obj -c C:\Users\Hagar\CLionProjects\dataStruct\list\tree.cpp
 
-CMakeFiles/list.dir/library1.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/list.dir/library1.cpp.i"
-	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hagar\CLionProjects\dataStruct\list\library1.cpp > CMakeFiles\list.dir\library1.cpp.i
+CMakeFiles/list.dir/tree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/list.dir/tree.cpp.i"
+	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Hagar\CLionProjects\dataStruct\list\tree.cpp > CMakeFiles\list.dir\tree.cpp.i
 
-CMakeFiles/list.dir/library1.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/list.dir/library1.cpp.s"
-	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Hagar\CLionProjects\dataStruct\list\library1.cpp -o CMakeFiles\list.dir\library1.cpp.s
+CMakeFiles/list.dir/tree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/list.dir/tree.cpp.s"
+	C:\PROGRA~1\TDM-GCC\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Hagar\CLionProjects\dataStruct\list\tree.cpp -o CMakeFiles\list.dir\tree.cpp.s
 
-CMakeFiles/list.dir/library1.cpp.obj.requires:
+CMakeFiles/list.dir/tree.cpp.obj.requires:
 
-.PHONY : CMakeFiles/list.dir/library1.cpp.obj.requires
+.PHONY : CMakeFiles/list.dir/tree.cpp.obj.requires
 
-CMakeFiles/list.dir/library1.cpp.obj.provides: CMakeFiles/list.dir/library1.cpp.obj.requires
-	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/library1.cpp.obj.provides.build
-.PHONY : CMakeFiles/list.dir/library1.cpp.obj.provides
+CMakeFiles/list.dir/tree.cpp.obj.provides: CMakeFiles/list.dir/tree.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/tree.cpp.obj.provides.build
+.PHONY : CMakeFiles/list.dir/tree.cpp.obj.provides
 
-CMakeFiles/list.dir/library1.cpp.obj.provides.build: CMakeFiles/list.dir/library1.cpp.obj
+CMakeFiles/list.dir/tree.cpp.obj.provides.build: CMakeFiles/list.dir/tree.cpp.obj
 
 
 # Object files for target list
 list_OBJECTS = \
-"CMakeFiles/list.dir/lib_main.cpp.obj" \
-"CMakeFiles/list.dir/list.cpp.obj" \
-"CMakeFiles/list.dir/library1.cpp.obj"
+"CMakeFiles/list.dir/tree_main.cpp.obj" \
+"CMakeFiles/list.dir/tree.cpp.obj"
 
 # External object files for target list
 list_EXTERNAL_OBJECTS =
 
-list.exe: CMakeFiles/list.dir/lib_main.cpp.obj
-list.exe: CMakeFiles/list.dir/list.cpp.obj
-list.exe: CMakeFiles/list.dir/library1.cpp.obj
+list.exe: CMakeFiles/list.dir/tree_main.cpp.obj
+list.exe: CMakeFiles/list.dir/tree.cpp.obj
 list.exe: CMakeFiles/list.dir/build.make
 list.exe: CMakeFiles/list.dir/linklibs.rsp
 list.exe: CMakeFiles/list.dir/objects1.rsp
 list.exe: CMakeFiles/list.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Hagar\CLionProjects\dataStruct\list\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable list.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Hagar\CLionProjects\dataStruct\list\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable list.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\list.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -152,9 +126,8 @@ CMakeFiles/list.dir/build: list.exe
 
 .PHONY : CMakeFiles/list.dir/build
 
-CMakeFiles/list.dir/requires: CMakeFiles/list.dir/lib_main.cpp.obj.requires
-CMakeFiles/list.dir/requires: CMakeFiles/list.dir/list.cpp.obj.requires
-CMakeFiles/list.dir/requires: CMakeFiles/list.dir/library1.cpp.obj.requires
+CMakeFiles/list.dir/requires: CMakeFiles/list.dir/tree_main.cpp.obj.requires
+CMakeFiles/list.dir/requires: CMakeFiles/list.dir/tree.cpp.obj.requires
 
 .PHONY : CMakeFiles/list.dir/requires
 

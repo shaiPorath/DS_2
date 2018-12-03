@@ -17,12 +17,13 @@ public:
     int height;
     tnode* right;
     tnode* left;
+    tnode* parent;
 
     tnode(int key, void* value) : key(key), value(value),height(0), right(nullptr), left
-            (nullptr){};
+            (nullptr), parent(nullptr){};
 };
 
-enum StatusType {ALLOCATION_ERROR, INVALID_INPUT, FAILURE, SUCCESS};
+//enum StatusType {ALLOCATION_ERROR, INVALID_INPUT, FAILURE, SUCCESS};
 
 typedef class tree *Tree;
 typedef class tnode *TNode;
@@ -38,7 +39,6 @@ public:
     /**
      * returns a pointer to the data struct or NULL if failed
      */
-
 
     void* Add(int key, void* value);
 /**
@@ -56,6 +56,10 @@ public:
     void Quit();
 
     void insert_node (TNode new_node, TNode iterator, int key);
+
+    void display(TNode ptr, int level);
+    bool is_balanced(TNode n);
+
 };
 
 #endif //LIST_TREE_H

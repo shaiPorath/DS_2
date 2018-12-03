@@ -3,6 +3,7 @@
 #include <assert.h>
 
 
+
 int main() {
     void* new_list = new list(); //init();
     assert(!((List)new_list)->first); //init to null
@@ -73,7 +74,7 @@ int main() {
     node2 = ((Node)((List)new_list)->Add(2, value2));
     node3 = ((Node)((List)new_list)->Add(3, value3));
 
-    assert((Node)((List)new_list)->DeleteByPointer(node2) == (new_list));
+    assert(((List)new_list)->DeleteByPointer(node2) == new_list);
     assert(((List)new_list)->first == node3);
     assert(((List)new_list)->Size() == 2);
 

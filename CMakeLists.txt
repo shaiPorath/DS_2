@@ -3,4 +3,4 @@ project(list)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(list lib_main.cpp list.h list.cpp  library1.h library1.cpp)
+add_executable(list tree_main.cpp tree.cpp tree.h )

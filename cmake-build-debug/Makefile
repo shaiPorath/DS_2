@@ -122,86 +122,59 @@ list/fast:
 	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/build
 .PHONY : list/fast
 
-lib_main.obj: lib_main.cpp.obj
+tree.obj: tree.cpp.obj
 
-.PHONY : lib_main.obj
-
-# target to build an object file
-lib_main.cpp.obj:
-	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/lib_main.cpp.obj
-.PHONY : lib_main.cpp.obj
-
-lib_main.i: lib_main.cpp.i
-
-.PHONY : lib_main.i
-
-# target to preprocess a source file
-lib_main.cpp.i:
-	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/lib_main.cpp.i
-.PHONY : lib_main.cpp.i
-
-lib_main.s: lib_main.cpp.s
-
-.PHONY : lib_main.s
-
-# target to generate assembly for a file
-lib_main.cpp.s:
-	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/lib_main.cpp.s
-.PHONY : lib_main.cpp.s
-
-library1.obj: library1.cpp.obj
-
-.PHONY : library1.obj
+.PHONY : tree.obj
 
 # target to build an object file
-library1.cpp.obj:
-	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/library1.cpp.obj
-.PHONY : library1.cpp.obj
+tree.cpp.obj:
+	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/tree.cpp.obj
+.PHONY : tree.cpp.obj
 
-library1.i: library1.cpp.i
+tree.i: tree.cpp.i
 
-.PHONY : library1.i
+.PHONY : tree.i
 
 # target to preprocess a source file
-library1.cpp.i:
-	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/library1.cpp.i
-.PHONY : library1.cpp.i
+tree.cpp.i:
+	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/tree.cpp.i
+.PHONY : tree.cpp.i
 
-library1.s: library1.cpp.s
+tree.s: tree.cpp.s
 
-.PHONY : library1.s
+.PHONY : tree.s
 
 # target to generate assembly for a file
-library1.cpp.s:
-	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/library1.cpp.s
-.PHONY : library1.cpp.s
+tree.cpp.s:
+	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/tree.cpp.s
+.PHONY : tree.cpp.s
 
-list.obj: list.cpp.obj
+tree_main.obj: tree_main.cpp.obj
 
-.PHONY : list.obj
+.PHONY : tree_main.obj
 
 # target to build an object file
-list.cpp.obj:
-	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/list.cpp.obj
-.PHONY : list.cpp.obj
+tree_main.cpp.obj:
+	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/tree_main.cpp.obj
+.PHONY : tree_main.cpp.obj
 
-list.i: list.cpp.i
+tree_main.i: tree_main.cpp.i
 
-.PHONY : list.i
+.PHONY : tree_main.i
 
 # target to preprocess a source file
-list.cpp.i:
-	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/list.cpp.i
-.PHONY : list.cpp.i
+tree_main.cpp.i:
+	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/tree_main.cpp.i
+.PHONY : tree_main.cpp.i
 
-list.s: list.cpp.s
+tree_main.s: tree_main.cpp.s
 
-.PHONY : list.s
+.PHONY : tree_main.s
 
 # target to generate assembly for a file
-list.cpp.s:
-	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/list.cpp.s
-.PHONY : list.cpp.s
+tree_main.cpp.s:
+	$(MAKE) -f CMakeFiles\list.dir\build.make CMakeFiles/list.dir/tree_main.cpp.s
+.PHONY : tree_main.cpp.s
 
 # Help Target
 help:
@@ -212,15 +185,12 @@ help:
 	@echo ... list
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... lib_main.obj
-	@echo ... lib_main.i
-	@echo ... lib_main.s
-	@echo ... library1.obj
-	@echo ... library1.i
-	@echo ... library1.s
-	@echo ... list.obj
-	@echo ... list.i
-	@echo ... list.s
+	@echo ... tree.obj
+	@echo ... tree.i
+	@echo ... tree.s
+	@echo ... tree_main.obj
+	@echo ... tree_main.i
+	@echo ... tree_main.s
 .PHONY : help
 
 

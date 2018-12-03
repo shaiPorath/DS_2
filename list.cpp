@@ -5,11 +5,6 @@
 #include "list.h"
 
 
-/*------------------------------------------------*/
-//static Node node_create(int key, void* value);
-
-/*------------------------------------------------*/
-
 list::list():size(0), first(nullptr){}
 //list::node::node(int key, void* value) : key(key), value(value), next(nullptr), last
    //     (nullptr){};
@@ -28,16 +23,7 @@ void* list::Add(int key, void* value) {
 
 }
 
-/*
-static Node node_create(int key, void* value){
-    Node new_node = new class node();
-    new_node->key = key;
-    new_node->value = value;
-    new_node->next = nullptr;
-    new_node->last = nullptr;
-    return (new_node);
-}
- */
+
 /*
 void list::insert_node (Node new_node, Node iterator, int key){
 
