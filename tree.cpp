@@ -6,63 +6,57 @@
 #include <iostream>
 
 /*-------------------------------------------------*/
-static TNode insert (TNode root, TNode new_tnode);
-/**
- * calculates the balance factor
- * @param node - node to calc bf for
- * @return - bf
- */
-static int bf_calc (TNode node);
-static int max(int a, int b);
-/**
- *
- * @param tnode
- * @return max of to sons + 1
- *          -1 if empty tree
- */
-static int height(TNode tnode);
-//static int abs(int x);
+//Add
+static TNode Add_aux(TNode root, TNode new_tnode);
 
-static TNode balance (TNode temp);
+//Find
+static void* Find_aux(TNode root,int key);
+static void* Find_node(int key);
+
+//Quit
+static void Quit_aux(TNode node);
+
+//Delete
+static TNode findMin(TNode node);
+static TNode Delete_aux(int key, TNode root);
+static void copy_min_values (TNode min, TNode root);
+
+//balancing functions
+static int bf_calc (TNode node); //calculates the balance factor
+static int max(int a, int b);
+static int height(TNode tnode);// return (max of to sons+1),-1 if empty tree
 static TNode LL_rotation (TNode root);
 static TNode RR_rotation (TNode root);
 static TNode LR_rotation (TNode root);
 static TNode RL_rotation (TNode root);
+static TNode balance (TNode temp);
+//static int abs(int x);
 
-static void* Find_aux(TNode root,int key);
-
-static void Quit_aux(TNode node);
-static TNode findMin(TNode node);
-static void update_parent(TNode node);
-static TNode Delete_aux(int key, TNode root);
-static void copy_min_values (TNode min, TNode root);
 /*-------------------------------------------------*/
 
 tree::tree():size(0), root(nullptr){}
 
 void* tree::Add(int key, void* value) {
     TNode new_tnode = new tnode(key, value);
-    root = insert(root, new_tnode);
+    root = Add_aux(root, new_tnode);
     size++;
     return new_tnode;
 }
 
-static TNode insert (TNode root, TNode new_tnode) {
+static TNode Add_aux(TNode root, TNode new_tnode) {
 
     if (!root) {
         root = new_tnode;
         return root;
     } else if (root->key < new_tnode->key) {
-        root->right = insert(root->right, new_tnode);
-        (root->right)->parent = root;
+        root->right = Add_aux(root->right, new_tnode);
         //insert(root->right, new_tnode);
 
         root = balance(root);
         root->height = max(height(root->left), height(root->right)) + 1;
 
     } else if (root->key > new_tnode->key) {
-        root->left = insert(root->left, new_tnode);
-        (root->left)->parent = root;
+        root->left = Add_aux(root->left, new_tnode);
         root = balance(root);
     }
     root->height = max(height(root->left), height(root->right)) + 1;
@@ -96,13 +90,9 @@ static TNode LL_rotation (TNode root){
     //update parent
 
     root->height--;
-    root->parent = new_root;
-    if(new_root) {
+    if(new_root)
         (new_root)->height++;
-        new_root->parent = nullptr;
-        if(new_root->right)
-            ((new_root)->right)->parent = root;
-    }
+
     TNode temp;
     temp = root->left;
     root->left = temp->right;
@@ -115,15 +105,11 @@ static TNode RR_rotation(TNode root){
     TNode new_root = root->right;
 
     //update height
-    //update parent
     root->height--;
-    root->parent = new_root;
-    if(new_root) {
+
+    if(new_root)
         (new_root)->height++;
-        new_root->parent = nullptr;
-        if(new_root->left)
-            ((new_root)->left)->parent = root;
-    }
+
 
     TNode temp;
     temp = root->right;
@@ -151,10 +137,10 @@ static int bf_calc (TNode node){
 }
 
 void* tree::Find(int key){
-    return Find_aux (root, key);
+    return (((TNode)(Find_node(root, key)))->value);
 }
 
-static void* Find_aux(TNode root,int key){
+static void* Find_node(TNode root,int key){
     if (!root) return nullptr;
 
     if (key == root->key){
@@ -168,8 +154,6 @@ static void* Find_aux(TNode root,int key){
         return Find_aux(root->right ,key);
 
 }
-
-
 
 void* tree::Delete(int key){
     //return(DeleteByPointer(Find(key)));
@@ -234,15 +218,6 @@ void* tree::DeleteByPointer(void* to_delete) {
     return (Delete(((TNode)to_delete)->key));
 }
 
-static void update_parent(TNode node){
-    TNode par = node->parent;
-    if(par->key < node->key)
-        par->left = nullptr;
-    else
-        par->right = nullptr;
-
-}
-
 static TNode findMin(TNode node){
     if(!node) return nullptr;
     if(!node->left) return node;
@@ -274,6 +249,9 @@ static int height(TNode tnode){
     return tnode->height;
 }
 
+bool tree::is_empty(){
+    return (root == nullptr);
+}
 
 
 /*---------------- functions for tests ------------------*/
@@ -290,10 +268,8 @@ void tree::display(TNode ptr, int level) {
         cout << "Root -> ";
     for (i = 0; i < level && ptr != root; i++)
         cout << "        ";
-    if( ptr->parent)
-        cout << ptr->key<< " p:"<<(ptr->parent)->key ;
-    else
-        cout << ptr->key<< " p:n" ;
+        cout << ptr->key;
+
     display(ptr->left, level + 1);
 
 }

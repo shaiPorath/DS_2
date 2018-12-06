@@ -17,10 +17,9 @@ public:
     int height;
     tnode* right;
     tnode* left;
-    tnode* parent;
 
     tnode(int key, void* value) : key(key), value(value),height(0), right(nullptr), left
-            (nullptr), parent(nullptr){};
+            (nullptr){};
 };
 
 //enum StatusType {ALLOCATION_ERROR, INVALID_INPUT, FAILURE, SUCCESS};
@@ -49,17 +48,14 @@ public:
  */
     void* Find(int key);
     void* Delete(int key);
-
-
     void* DeleteByPointer(void* tnode);
     int Size();
     void Quit();
-
-    void insert_node (TNode new_node, TNode iterator, int key);
-
     void display(TNode ptr, int level);
     bool is_balanced(TNode n);
 
+    bool is_empty();
+    void* Find_value(int key);
 };
 
 #endif //LIST_TREE_H

@@ -18,6 +18,9 @@
 extern "C" {
 #endif
 
+#include <exception>
+#include "ImageTagger.h"
+
 /* Return Values
  * ----------------------------------- */
 typedef enum {

@@ -4,7 +4,6 @@
 
 #include "library1_list.h"
 
-
 void *Init(){
     try {
         return ((void *) new tree());
@@ -24,9 +23,9 @@ StatusType Find(void *DS, int key, void** value){
     if (!DS || !value)
         return INVALID_INPUT;
 
-    TNode found = (TNode)(((Tree) DS)->Find(key));
-    if (!found) return FAILURE;
-    *value = found->value;
+    value = &(((Tree) DS)->Find(key));
+    if (!value) return FAILURE;
+
     return SUCCESS;
 }
 
@@ -36,6 +35,7 @@ StatusType Delete(void *DS, int key){
     return SUCCESS;
 
 }
+
 StatusType DeleteByPointer(void *DS, void* p){
     if (!DS || !p) return INVALID_INPUT;
 
@@ -50,7 +50,6 @@ StatusType Size(void *DS, int *n){
     *n = ((Tree)(DS))->Size();
     return SUCCESS;
 }
-
 
 void Quit(void** DS){
     if (!DS) return;
