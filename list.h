@@ -34,28 +34,12 @@ public:
     list();
 
     void* Add(int key, void* value);
-/**
- *
- * @param key - the key of the item we want to find
- * @return the node with requested key.
- * null - if was not found
- */
     void* Find(int key);
     void* Delete(int key);
-
-    /**
-     *
-     * @param node - node to delete
-     * @return this - if found and deleted,
-     *          null if node == null.
-     */
     void* DeleteByPointer(void* node);
-
-
     int Size();
     void Quit();
 
-    //void insert_node (Node new_node, Node iterator, int key);
 }*List;
 
 

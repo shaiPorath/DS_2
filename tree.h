@@ -55,7 +55,8 @@ public:
     bool is_balanced(TNode n);
 
     bool is_empty();
-    void* Find_value(int key);
+    void** val_arr();
+    int* key_arr();
 };
 
 #endif //LIST_TREE_H

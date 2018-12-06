@@ -4,7 +4,7 @@
 
 
 int main() {
-    List new_list = (List)Init(); //init();
+    List new_list = new list(); //init();
     assert(!new_list->first); //init to null
     assert(!new_list->Size());  //init size to 0
     //int* size_ptr = new int(0);
@@ -73,7 +73,7 @@ int main() {
     node2 = ((Node)((List)new_list)->Add(2, value2));
     node3 = ((Node)((List)new_list)->Add(3, value3));
 
-    assert((Node)((List)new_list)->DeleteByPointer(node2) == (new_list));
+    assert(((List)new_list)->DeleteByPointer(node2) == (new_list));
     assert(((List)new_list)->first == node3);
     assert(((List)new_list)->Size() == 2);
 
@@ -89,4 +89,3 @@ int main() {
     delete(value2);
     return 0;
 }
-

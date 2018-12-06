@@ -9,9 +9,9 @@
 
 class value{
 public:
-    Node none_tagged_ptr[];
+    Node* none_tagged_ptr;
     List none_tagged;
-    int segments[];
+    int* segments;
 
     explicit value (int segments) : none_tagged_ptr(new Node[segments]),
                                     none_tagged(new list()),segments(new int[segments]) {
@@ -20,11 +20,19 @@ public:
             this->segments[i] = -1;
         }
     }
-        ~value(){
-            delete[](segments);
-            delete[](none_tagged_ptr);
-            none_tagged->Quit();
+    ~value() {
+        delete[](segments);
+        delete[](none_tagged_ptr);
+        none_tagged->Quit();
+    }
+
+    int count_seg_by_label(int label, int seg_num){
+        int counter = 0;
+        for (int i=0; i<seg_num; i++){
+            if( segments[i] == label) counter++;
         }
+        return counter;
+    }
 };
 
 class ImageTagger{
@@ -41,7 +49,8 @@ public:
     void* GetLabel(int imageID, int segmentID, int *label);
     void* DeleteLabel(int imageID, int segmentID);
     void* GetAllUnLabeledSegments(int imageID, int **segments, int *numOfSegments);
-    void* GetAllSegmentsByLabel(int label, int **images, int **segments, int *numOfSegments);
+    void* GetAllSegmentsByLabel(int label, int **images, int **segments, int
+    *numOfSegments);
     void Quit();
 
 };

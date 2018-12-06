@@ -18,6 +18,8 @@
 extern "C" {
 #endif
 
+#include "ImageTagger.h"
+
 /* Return Values
  * ----------------------------------- */
 typedef enum {
@@ -50,22 +52,60 @@ StatusType DeleteImage(void *DS, int imageID){
     return SUCCESS;
 }
 
-StatusType AddLabel(void *DS, int imageID, int segmentID, int label);
+StatusType AddLabel(void *DS, int imageID, int segmentID, int label){
+    if(!DS || imageID <= 0 || label <= 0 ||
+       segmentID < 0 || segmentID >= ((ImageTagger)DS).segments)
+        return INVALID_INPUT;
+
+    try {
+        if (!((ImageTagger)DS).AddLabel(imageID, segmentID, label))
+            return FAILURE;  // Image doesn't exist
+
+        return SUCCESS;
+    }catch (bad_alloc& e) { return ALLOCATION_ERROR; }
+}
 
 
-StatusType GetLabel(void *DS, int imageID, int segmentID, int *label);
+StatusType GetLabel(void *DS, int imageID, int segmentID, int *label){
+    if(!DS || imageID <= 0 || !label ||
+       segmentID < 0 || segmentID >= ((ImageTagger)DS).segments)
+        return INVALID_INPUT;
+
+    if (!((ImageTagger)DS).GetLabel(imageID,))
+        return FAILURE;  // Image doesn't exist
+
+    return SUCCESS;
+}
 
 
-StatusType DeleteLabel(void *DS, int imageID, int segmentID);
+StatusType DeleteLabel(void *DS, int imageID, int segmentID){
+    if(!DS || imageID <= 0 ||
+       segmentID < 0 || segmentID >= ((ImageTagger)DS).segments)
+        return INVALID_INPUT;
+
+    try {
+        if (!((ImageTagger)DS).DeleteLabel(imageID, segmentID))
+            return FAILURE;  // Image doesn't exist/seg not tagged
+
+        return SUCCESS;
+    }catch (bad_alloc& e) { return ALLOCATION_ERROR; }
+}
+
+StatusType GetAllSegmentsByLabel(void *DS, int label, int **images, int **segments, int
+*numOfSegments){
+    if(!DS || !images || !segments || !numOfSegments || label<=0)
+        return INVALID_INPUT;
+    if(!((ImageTagger*)DS)->GetAllSegmentsByLabel(label,images, segments, numOfSegments))
+        return ALLOCATION_ERROR;
+    return SUCCESS;
+}
 
 
-StatusType GetAllUnLabeledSegments(void *DS, int imageID, int **segments, int *numOfSegments);
-
-
-StatusType GetAllSegmentsByLabel(void *DS, int label, int **images, int **segments, int *numOfSegments);
-
-
-void Quit(void** DS);
+void Quit(void** DS){
+    if(!DS) return INVALID_INPUT;
+    ((ImageTagger*)DS)->Quit();
+    DS = nullptr;
+}
 
 #ifdef __cplusplus
 }

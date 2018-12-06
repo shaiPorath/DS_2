@@ -10,8 +10,8 @@
 static TNode Add_aux(TNode root, TNode new_tnode);
 
 //Find
-static void* Find_aux(TNode root,int key);
-static void* Find_node(int key);
+static void* Find_node(TNode root,int key);
+
 
 //Quit
 static void Quit_aux(TNode node);
@@ -32,6 +32,9 @@ static TNode RL_rotation (TNode root);
 static TNode balance (TNode temp);
 //static int abs(int x);
 
+//inorder
+static void key_arr_aux(TNode root, int* arr, int i);
+static void val_arr_aux(TNode root, void** arr, int i);
 /*-------------------------------------------------*/
 
 tree::tree():size(0), root(nullptr){}
@@ -137,7 +140,9 @@ static int bf_calc (TNode node){
 }
 
 void* tree::Find(int key){
-    return (((TNode)(Find_node(root, key)))->value);
+    TNode found = ((TNode)(Find_node(root, key)));
+    if (!found) return nullptr;
+    return found->value;
 }
 
 static void* Find_node(TNode root,int key){
@@ -148,10 +153,10 @@ static void* Find_node(TNode root,int key){
     }
 
     else if (key < root->key)
-        return Find_aux(root->left ,key);
+        return Find_node(root->left ,key);
 
     else if (key > root->key)
-        return Find_aux(root->right ,key);
+        return Find_node(root->right ,key);
 
 }
 
@@ -253,6 +258,35 @@ bool tree::is_empty(){
     return (root == nullptr);
 }
 
+
+
+int* tree::key_arr() {
+    int* arr = new int[size];
+    key_arr_aux(root, arr, 0);
+    return arr;
+}
+
+static void key_arr_aux(TNode root, int* arr, int i)
+{
+    if (!root) return;
+    key_arr_aux (root->left, arr, i++);
+    arr[i++] = root->key;
+    key_arr_aux (root->right, arr, i);
+}
+
+void** tree::val_arr() {
+    void** arr = new void*[size];
+    val_arr_aux(root, arr, 0);
+    return arr;
+}
+
+static void val_arr_aux(TNode root, void** arr, int i)
+{
+    if (!root) return;
+    val_arr_aux (root->left, arr, i++);
+    arr[i++] = root->value;
+    val_arr_aux (root->right, arr, i);
+}
 
 /*---------------- functions for tests ------------------*/
 
