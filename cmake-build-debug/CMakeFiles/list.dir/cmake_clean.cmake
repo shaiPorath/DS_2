@@ -1,6 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/list.dir/tree_main.cpp.obj"
+  "CMakeFiles/list.dir/part2_main.cpp.obj"
+  "CMakeFiles/list.dir/ImageTagger.cpp.obj"
   "CMakeFiles/list.dir/tree.cpp.obj"
+  "CMakeFiles/list.dir/list.cpp.obj"
+  "CMakeFiles/list.dir/library2.cpp.obj"
   "list.pdb"
   "list.exe"
   "list.exe.manifest"

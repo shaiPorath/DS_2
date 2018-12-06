@@ -63,6 +63,7 @@ void* list::Find(int key){
 void* list::Delete(int key){
     return (DeleteByPointer(this->Find(key)));
 }
+
 void* list::DeleteByPointer(void* node){
     if (!node) return nullptr;
 
@@ -108,4 +109,19 @@ void list::Quit(){
 
     delete (this);
 
+}
+
+int* list::key_arr(){
+    if (size == 0) return nullptr;
+
+    auto key_arr = (int*)malloc((this->size)* sizeof(int));
+    if (!key_arr) return nullptr;
+
+    Node iterator = first;
+
+    for (int i = 0; i < size; i++, iterator = iterator->next){
+        key_arr[i] = iterator->key;
+    }
+
+    return key_arr;
 }

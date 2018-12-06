@@ -175,15 +175,15 @@ static TNode Delete_aux(int key, TNode root) {
     //node isnt in the tree
     if (!root) return nullptr;
 
-    //search node
+        //search node
     else if (key < root->key)
         root->left = Delete_aux(key, root->left);
     else if (key > root->key)
         root->right = Delete_aux(key, root->right);
 
-    //node found!
+        //node found!
 
-    // If node has 2 kids
+        // If node has 2 kids
 
     else if (root->right && root->left) {
         TNode min = findMin(root->right);
@@ -302,7 +302,7 @@ void tree::display(TNode ptr, int level) {
         cout << "Root -> ";
     for (i = 0; i < level && ptr != root; i++)
         cout << "        ";
-        cout << ptr->key;
+    cout << ptr->key;
 
     display(ptr->left, level + 1);
 

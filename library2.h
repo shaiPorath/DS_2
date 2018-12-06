@@ -11,15 +11,14 @@
 /*                                                                          */
 /****************************************************************************/
 
-#ifndef _234218_WET1_2
-#define _234218_WET1_2
+#ifndef _LIST_LIBRARY2_H
+#define _LIST_LIBRARY2_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 #include <exception>
-#include "ImageTagger.h"
 
 /* Return Values
  * ----------------------------------- */
@@ -136,4 +135,4 @@ void Quit(void** DS);
 }
 #endif
 
-#endif    /*_234218_WET1_ */
+#endif    /*LIST_LIBRARY2_H */

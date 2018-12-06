@@ -69,48 +69,68 @@ int main() {
     std::cout << "Find step complete!" << std::endl;
 
     /*function delete*/
+
+
     assert (new_tree->Delete(1) == new_tree); //remove first node
+
     assert (((Tree)new_tree)->Find(1)== nullptr); //check that first node was removed
+
+
+    new_tree->display(new_tree->root,0);
+    cout << endl;
+
+
     assert(((Tree)new_tree)->root == tnode4); //check that now node2 is first
     assert(((Tree)new_tree)->Size() == 5); //size decreased
+
     assert (((Tree)new_tree)->Delete(10) == nullptr); //bad key
     assert (((Tree)new_tree)->Delete(4) == ((Tree)new_tree)); //remove a node
     assert (((Tree)new_tree)->Size() == 4);
+
+
+    new_tree->display(new_tree->root,0);
+    cout << endl;
+
     assert (((Tree)new_tree)->Delete(2) == ((Tree)new_tree)); //remove a node
+
+    new_tree->display(new_tree->root,0);
+    cout << endl;
+
     assert (((Tree)new_tree)->Delete(3) == ((Tree)new_tree)); //remove a node
+    new_tree->display(new_tree->root,0);
+    cout << endl;
+
     assert (((Tree)new_tree)->Delete(5) == ((Tree)new_tree)); //remove a node
     assert(((Tree)new_tree)->Size() == 1);
+    new_tree->display(new_tree->root,0);
+    cout << endl;
+
     assert (((Tree)new_tree)->Delete(6) == ((Tree)new_tree)); //remove a node
+    new_tree->display(new_tree->root,0);
+    cout << endl;
+
     assert(((Tree)new_tree)->Size() == 0);
+
     assert(((Tree)new_tree)->root == nullptr); //check that now root is null
+
     assert (((Tree)new_tree)->Delete(1) == nullptr); //remove a node when tree is null
 
     std::cout << "Delete step complete!" << std::endl;
 
+
     /*function DeleteByPointer :):)*/
-    tnode1 = ((TNode)((Tree) new_tree)->Add(1, value1));
-    tnode2 = ((TNode)((Tree) new_tree)->Add(2, value2));
-    tnode3 = ((TNode)((Tree) new_tree)->Add(3, value3));
-    tnode4 = ((TNode)((Tree) new_tree)->Add(4, value4));
-
-    assert(new_tree->DeleteByPointer(tnode3) == new_tree);
-    assert (((Tree)new_tree)->Find(3)== nullptr); //check that first node was removed
-    assert(((Tree)new_tree)->Size() == 3);
 
 
-    assert(new_tree->DeleteByPointer(tnode1) == new_tree);
-    assert (((Tree)new_tree)->Find(1)== nullptr); //check that first node was removed
+   //assert(new_tree->DeleteByPointer(tnode3) == new_tree);
+/*
+    node1 = ((Node)((Tree)new_tree)->Add(1, value1));
+    node2 = ((Node)((Tree)new_tree)->Add(2, value2));
+    node3 = ((Node)((Tree)new_tree)->Add(3, value3));
+
+
+    assert(((Tree)new_tree)->first == node3);
     assert(((Tree)new_tree)->Size() == 2);
-
-    assert(new_tree->DeleteByPointer(tnode2) == new_tree);
-    assert (((Tree)new_tree)->Find(2)== nullptr); //check that first node was removed
-    assert(((Tree)new_tree)->Size() == 1);
-
-    assert(new_tree->DeleteByPointer(tnode4) == new_tree);
-    assert (((Tree)new_tree)->Find(4)== nullptr); //check that first node was removed
-    assert(((Tree)new_tree)->Size() == 0);
-
-    assert(new_tree->root == nullptr);
+*/
 
     new_tree->Quit();
     delete(value1);

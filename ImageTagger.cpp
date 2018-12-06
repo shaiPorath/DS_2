@@ -124,6 +124,19 @@ void* ImageTagger::GetAllSegmentsByLabel(int label, int **images, int **segments
     return this;
 }
 
+void* ImageTagger::GetAllUnLabeledSegments(int imageID, int **segments, int *numOfSegments){
+    if (!segments || !numOfSegments) return nullptr;
+
+    value* val = ((value*)(this->images)->Find(imageID));
+
+    if (!val) return nullptr;
+
+    *segments = (val->none_tagged)->key_arr();
+    if (!(*segments)) return nullptr;
+
+    return segments;
+}
+
 void ImageTagger::Quit(){
     value** val_arr = (value**)((this->images)->val_arr());
     int size = images->Size();

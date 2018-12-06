@@ -11,14 +11,15 @@
 /*                                                                          */
 /****************************************************************************/
 
-#ifndef _234218_WET1_2
-#define _234218_WET1_2
+#ifndef _LIST_LIBRARY2_H
+#define _LIST_LIBRARY2_H
+
+#include "ImageTagger.h"
+#include "library2.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include "ImageTagger.h"
 
 /* Return Values
  * ----------------------------------- */
@@ -32,14 +33,14 @@ typedef enum {
 
 void *Init(int segments){
     try {
-        return ((void *) new ImageTagger());
+        return ((void *) new ImageTagger(segments));
     }catch (bad_alloc& e) {return nullptr;}
 }
 
 StatusType AddImage(void *DS, int imageID){
     if(!DS || imageID <= 0) return INVALID_INPUT;
     try {
-        if (!((ImageTagger) DS).AddImage(imageID))
+        if (!((ImageTagger*) DS)->AddImage(imageID))
             return FAILURE;
 
         return SUCCESS;
@@ -54,11 +55,11 @@ StatusType DeleteImage(void *DS, int imageID){
 
 StatusType AddLabel(void *DS, int imageID, int segmentID, int label){
     if(!DS || imageID <= 0 || label <= 0 ||
-       segmentID < 0 || segmentID >= ((ImageTagger)DS).segments)
+       segmentID < 0 || segmentID >= ((ImageTagger*)DS)->segments)
         return INVALID_INPUT;
 
     try {
-        if (!((ImageTagger)DS).AddLabel(imageID, segmentID, label))
+        if (!((ImageTagger*)DS)->AddLabel(imageID, segmentID, label))
             return FAILURE;  // Image doesn't exist
 
         return SUCCESS;
@@ -68,23 +69,37 @@ StatusType AddLabel(void *DS, int imageID, int segmentID, int label){
 
 StatusType GetLabel(void *DS, int imageID, int segmentID, int *label){
     if(!DS || imageID <= 0 || !label ||
-       segmentID < 0 || segmentID >= ((ImageTagger)DS).segments)
+       segmentID < 0 || segmentID >= ((ImageTagger*)DS)->segments)
         return INVALID_INPUT;
 
-    if (!((ImageTagger)DS).GetLabel(imageID,))
+    if (!((ImageTagger*)DS)->GetLabel(imageID, segmentID, label))
         return FAILURE;  // Image doesn't exist
 
     return SUCCESS;
 }
 
-
-StatusType DeleteLabel(void *DS, int imageID, int segmentID){
-    if(!DS || imageID <= 0 ||
-       segmentID < 0 || segmentID >= ((ImageTagger)DS).segments)
+StatusType GetAllUnLabeledSegments(void *DS, int imageID, int **segments,
+                                   int *numOfSegments){
+    if(!DS || imageID <= 0 || !segments || !numOfSegments)
         return INVALID_INPUT;
 
     try {
-        if (!((ImageTagger)DS).DeleteLabel(imageID, segmentID))
+        if (!((ImageTagger*)DS)->GetAllUnLabeledSegments(imageID, segments,
+                                                         numOfSegments))
+            return FAILURE;  // Image doesn't exist/no untagged seg
+
+        return SUCCESS;
+    }catch (bad_alloc& e) { return ALLOCATION_ERROR; }
+}
+
+
+StatusType DeleteLabel(void *DS, int imageID, int segmentID){
+    if(!DS || imageID <= 0 ||
+       segmentID < 0 || segmentID >= ((ImageTagger*)DS)->segments)
+        return INVALID_INPUT;
+
+    try {
+        if (!((ImageTagger*)DS)->DeleteLabel(imageID, segmentID))
             return FAILURE;  // Image doesn't exist/seg not tagged
 
         return SUCCESS;
@@ -102,7 +117,7 @@ StatusType GetAllSegmentsByLabel(void *DS, int label, int **images, int **segmen
 
 
 void Quit(void** DS){
-    if(!DS) return INVALID_INPUT;
+    if(!DS) return;
     ((ImageTagger*)DS)->Quit();
     DS = nullptr;
 }

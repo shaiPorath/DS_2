@@ -6,21 +6,51 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Hagar/CLionProjects/dataStruct/list/tree.cpp
-tree.h
-C:/Users/Hagar/CLionProjects/dataStruct/list/tree.h
-iostream
--
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/ImageTagger.cpp
+ImageTagger.h
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/ImageTagger.h
 
-C:/Users/Hagar/CLionProjects/dataStruct/list/tree.h
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/ImageTagger.h
+tree.h
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/tree.h
+list.h
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/list.h
+
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/library2.cpp
+ImageTagger.h
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/ImageTagger.h
+library2.h
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/library2.h
+
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/library2.h
 exception
 -
 
-C:/Users/Hagar/CLionProjects/dataStruct/list/tree_main.cpp
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/list.cpp
+list.h
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/list.h
+
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/list.h
 iostream
 -
+exception
+-
+
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/part2_main.cpp
+cassert
+-
+library2.h
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/library2.h
+iostream
+-
+
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/tree.cpp
 tree.h
-C:/Users/Hagar/CLionProjects/dataStruct/list/tree.h
-assert.h
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/tree.h
+iostream
+-
+
+C:/Users/Shai/Desktop/technion/DataStructure/ex2/tree.h
+exception
 -
 

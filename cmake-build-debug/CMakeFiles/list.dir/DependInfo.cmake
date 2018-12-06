@@ -4,8 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Hagar/CLionProjects/dataStruct/list/tree.cpp" "C:/Users/Hagar/CLionProjects/dataStruct/list/cmake-build-debug/CMakeFiles/list.dir/tree.cpp.obj"
-  "C:/Users/Hagar/CLionProjects/dataStruct/list/tree_main.cpp" "C:/Users/Hagar/CLionProjects/dataStruct/list/cmake-build-debug/CMakeFiles/list.dir/tree_main.cpp.obj"
+  "C:/Users/Shai/Desktop/technion/DataStructure/ex2/ImageTagger.cpp" "C:/Users/Shai/Desktop/technion/DataStructure/ex2/cmake-build-debug/CMakeFiles/list.dir/ImageTagger.cpp.obj"
+  "C:/Users/Shai/Desktop/technion/DataStructure/ex2/library2.cpp" "C:/Users/Shai/Desktop/technion/DataStructure/ex2/cmake-build-debug/CMakeFiles/list.dir/library2.cpp.obj"
+  "C:/Users/Shai/Desktop/technion/DataStructure/ex2/list.cpp" "C:/Users/Shai/Desktop/technion/DataStructure/ex2/cmake-build-debug/CMakeFiles/list.dir/list.cpp.obj"
+  "C:/Users/Shai/Desktop/technion/DataStructure/ex2/part2_main.cpp" "C:/Users/Shai/Desktop/technion/DataStructure/ex2/cmake-build-debug/CMakeFiles/list.dir/part2_main.cpp.obj"
+  "C:/Users/Shai/Desktop/technion/DataStructure/ex2/tree.cpp" "C:/Users/Shai/Desktop/technion/DataStructure/ex2/cmake-build-debug/CMakeFiles/list.dir/tree.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
